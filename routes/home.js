@@ -15,6 +15,18 @@ router.get('/home', (req,res) => {
     // we are asking the server to give us information from signUp pug 
     res.render('home')
 });
-    
+
+// Logout, call back checking if there is a session
+router.post('/logout', (req, res) => {
+    if (req.session) {
+      req.session.destroy((err) => {
+        if (err) {
+          // failed to destroy session
+        } else {
+          return res.redirect('/home');
+        }
+      });
+    }
+  });
 // gives access to someone to access our router
 module.exports = router; 

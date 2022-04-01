@@ -29,6 +29,8 @@ mongoose.connect(config.database)
 const register = require('./routes/signup');
 const login = require('./routes/login'); 
 const home = require('./routes/home');
+const logout = require('./routes/home'); 
+const parking = require('./routes/parking'); 
 
 // Express-session middleware to help us save the session cookie.
 const expressSession = require('express-session')({
@@ -73,20 +75,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // connecting our app declared in routes
 app.use('/', register); 
 app.use('/', login); 
-app.use('/', home); 
-
-// Logout, call back checking if there is a session
-app.post('/logout', (req, res) => {
-    if (req.session) {
-      req.session.destroy((err) => {
-        if (err) {
-          // failed to destroy session
-        } else {
-          return res.redirect('/login');
-        }
-      });
-    }
-  });
+app.use('/', home);
+app.use('/', logout); 
+app.use('/', parking); 
 
 //Error non existent path.
 app.get('*', (req, res) => {

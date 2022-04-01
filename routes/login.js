@@ -24,13 +24,12 @@ router.get('/login', (req,res) => {
 router.post('/login', passport.authenticate('local', { faliureRedirect: '/login'}), (req,res) => {
     console.log('This is log in data', req.body);
     req.session.user = req.user; 
-
     // 
-    const userRole = roles[req.user.role]
-    if (userRole == 'manager') {
-        res.redirect('/home');    
-    }
-    // res.redirect('/home');
+    // const userRole = roles[req.user.role]
+    // if (userRole == 'manager') {
+    //     res.redirect('/home');    
+    // }
+     res.redirect('/home');
 }); 
 
     
