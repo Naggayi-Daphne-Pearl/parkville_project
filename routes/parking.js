@@ -28,12 +28,16 @@ router.post('/parking', (req,res) =>{
     const date = req.body.date; 
     const gender = req.body.gender; 
     
-    // // validating 
-    // // notEmpty is a function that makes sure the fields are entered. equivalent to required in html. 
-    // req.checkBody('nameofclient', 'enter user name').notEmpty();
-    // req.checkBody('phonenumber', 'enter correct phonenumbe').notEmpty;
-    // req.checkBody('numberplate', 'enter password').notEmpty();
-    // req.checkBody('confirmpassword', 'confirm password').notEmpty; 
+    // validating 
+    // notEmpty is a function that makes sure the fields are entered. equivalent to required in html. 
+    req.checkBody('nameofclient', 'enter user name').notEmpty();
+    req.checkBody('phonenumber', 'enter correct phonenumbe').notEmpty;
+    req.checkBody('numberplate', 'enter password').notEmpty();
+    req.checkBody(' typeofcar', 'enter type of car').notEmpty; 
+    req.checkBody('nin', 'enter Id number'); 
+    req.checkBody('date', 'enter time and date of checking in'); 
+    req.checkBody('gender', 'enter gender'); 
+    
     
     let error = req.validationErrors();
     if(error){

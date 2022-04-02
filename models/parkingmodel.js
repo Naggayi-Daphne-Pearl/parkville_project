@@ -29,10 +29,6 @@ const parkingSchema = mongoose.Schema({
         type: String, 
         required: true
     },
-    gender: {
-        type: String, 
-        required: true
-    },
 });
 
 // we are exporting information to another file to acccess database

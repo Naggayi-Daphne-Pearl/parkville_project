@@ -56,7 +56,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname,'views'))
 
 // body parser middle-ware section. focuses on the fields have been required
-app.use(bodyParser.urlencoded({extended:false})); 
+app.use(bodyParser.urlencoded({extended:true})); 
 app.use(bodyParser.json());
 app.use(expressSession);
 
