@@ -25,6 +25,7 @@ const db = mongoose.connection;
 // inheriting a connection from mongoose
 mongoose.connect(config.database)
 
+
 // we are creating a variable, that will be our route into our controller
 const register = require('./routes/signup');
 const login = require('./routes/login'); 
@@ -45,7 +46,7 @@ db.once('open', () => {
     console.log('connected successfully');
 })
 
-// once it opens and there is an error show error. err is a keyword
+//once it opens and there is an error show error. err is a keyword
 db.on('error', (err) => {
     console.log(err);
 })
@@ -89,3 +90,18 @@ app.get('*', (req, res) => {
 app.listen (4000, () => {
     console.log('listening at port 4000');
 })
+// const port = process.env.PORT || 4000;
+// const connectDB = require('./db/connect')
+// const start = async () => {
+//   try {
+//     await connectDB(process.env.MONGO_URI);
+//     console.log('connected to mongodb');
+//     app.listen(port, () =>
+//       console.log(`Server is listening on port ${port}...`)
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// start();

@@ -1,7 +1,11 @@
 // route will specify a path on your web browser
 
-const express = require('express'); 
-const router = express.Router(); 
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+
+
  
 // validating code from database
 const expressValidator = require('express-validator'); 
@@ -16,17 +20,12 @@ router.get('/home', (req,res) => {
     res.render('home')
 });
 
-// Logout, call back checking if there is a session
-router.post('/logout', (req, res) => {
-    if (req.session) {
-      req.session.destroy((err) => {
-        if (err) {
-          // failed to destroy session
-        } else {
-          return res.redirect('/home');
-        }
-      });
-    }
-  });
+
+// Logout form
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/login');
+});
+
 // gives access to someone to access our router
 module.exports = router; 

@@ -32,6 +32,8 @@ router.post('/login', passport.authenticate('local', { faliureRedirect: '/login'
      res.redirect('/home');
 }); 
 
+
+
     
 // gives access to someone to access our router
 module.exports = router; 

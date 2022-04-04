@@ -16,6 +16,7 @@ const registerSchema = mongoose.Schema({
     }
 });
 
+// hashing passwords using mongoose middle ware
 // encrpyt password
 registerSchema.pre('save', async function() {
   // generating salt
