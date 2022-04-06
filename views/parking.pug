@@ -1,53 +1,79 @@
-doctype html
 head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Parking form
+  title CAR PARKING UNIT
   // bootstrap CSS
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist/css/bootstrap.css')
   // flatpickr for selecting date and time
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css')
-  link(rel='stylesheet' href='../css/index.css')
+  link(rel='stylesheet' href='/css/index.css')
 .topnav
-  a.active(href='#home') PARKVILLE PARKING
-  a(href='/home') HOME
-  a(href='#contact') REPORTS
-  a(href='/logout') LOG OUT
+  .left
+    a.active(href='/home') PARKVILLE PARKING
+  .right
+    a(href='/logout') LOG OUT
+    a(href='#contact') REPORTS
+    a(href='/home') HOME
 .container
-  h1 PARKVILLE DAY AND NIGHT PARKING
-  .title Booking Form
-  form(action='/parking' method='POST')
+  .title CAR PARKING UNIT
+  form(action='/parking' name='parking' method='POST' onsubmit='clientValidate()')
     .user-details
       .input-box
+        // name
         span.details Name Of client
-        input(type='text' placeholder='Enter Your Full Name' name='nameofclient')
+        input(typeofcar='text' placeholder='Enter Your Full Name' name='userName')
+        // error message
+        #userName.text-danger.font-weight-bold.small
       .input-box
+        // phone Number
         span.details Phone Number
-        input(type='text' placeholder='070 XXXXXXX' name='phonenumber')
-      .input-box
-        span.details Number plate
-        input(type='text' placeholder='e.g UAX 666601D' name='numberplate')
-      .input-box
-        span.details Type Of Vehicle
-        input(type='text' placeholder='Type of vehicle e.g Subaru' name='typeofcar')
+        input(typeofcar='text' placeholder='070 XXXXXXX' name='phoneNumber')
+        // error message
+        #phoneNumber.text-danger.font-weight-bold.small
       .input-box
         span.details Identity Card Number
-        input(type='text' placeholder='NIN NUMBER' name='nin')
+        // Nin Number
+        input(typeofcar='text' placeholder='NIN NUMBER' name='nin')
+        // error message
+        #nin.text-danger.font-weight-bold.small
       .input-box
-        span.details Date and Time for booking
-        input(type='datetime-local' placeholder='Select Date' name='date')
-      .gender-details
-        span.gender-title Gender
-        label(for='')
-          input.gender(type='radio' name='male')
-          | Female
-        label(for='')
-          input.gender(type='radio' name='female')
-          | Male
+        // Number Plate
+        span.details Number plate
+        input(typeofcar='text' placeholder='e.g UAX 666601D' name='numberPlate')
+        // error message
+        #numberPlate.text-danger.font-weight-bold.small
+      .input-box
+        span.details(name='typeOfCar') Select type of car
+        select#cars(name='typeOfCars of cars')
+          option(value='Personal cars') PERSONAL CARS
+          option(value='Trucks') TRUCKS
+          option(value='Bodas') BODA BODA
+          option(value='Taxi') TAXI
+        // error message
+        #typeOfCar.text-danger.font-weight-bold.small(name='typeOfCar')
+      .input-box
+        span.details Date and Time for Entry
+        // date and time
+        input(typeofcar='datetime-local' placeholder='Select Date')
+      .input-box
+        span.details Parking Slot
+        input#slot(typeofcar='number' placeholder='parking slot' name='parkingSlot')
+        // error message
+        #parkingSlot.text-danger.font-weight-bold.small(name='parkingSlot')
+      .input-box
+        span.details AMOUNT PAID
+        select#cars(name='typeOfCars of cars')
+          option(value='Personal cars') Amount per hour
+          option(value='Trucks') 2000
+          option(value='Trucks') 3000
+          option(value='Bodas') 4000
+          option(value='Taxi') 1000
+        // error message
+        #amount.text-danger.font-weight-bold.small(name='amount')
       .button
-        input(type='Submit' value='Register')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous')
+        input(typeofcar='Submit' value='Register')
+script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')
 // This will initate date and time in our form
 script(src='https://cdn.jsdelivr.net/npm/flatpickr')
 script.
@@ -56,3 +82,4 @@ script.
   dateFormat: "Y-m-d H:i",
   }
   flatpickr("input=[type=datetime-local", {});
+script(src='/validations/parking.js')

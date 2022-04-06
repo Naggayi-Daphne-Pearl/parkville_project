@@ -1,0 +1,72 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Parking form
+  // bootstrap CSS
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist/css/bootstrap.css')
+  // flatpickr for selecting date and time
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css')
+  link(rel='stylesheet' href='')
+.topnav
+  .left
+    a.active(href='#home') PARKVILLE PARKING
+  .right
+    a(href='/logout') LOG OUT
+    a(href='#contact') REPORTS
+    a(href='/home') HOME
+.container
+  .title BATTERY SECTION
+  form(action='#' name='battery' onsubmit='clientValidate()')
+    .user-details
+      .input-box
+        // name of client
+        span.details Name Of client
+        input(type='text' placeholder='Enter Your Full Name' name='userName')
+        // error message
+        #userName.text-danger.font-weight-bold.small
+      .input-box
+        // phone Number
+        span.details Phone Number
+        input(type='text' placeholder='070 XXXXXXX' name='phoneNumber')
+        // error message
+        #phoneNumber.text-danger.font-weight-bold.small
+      // Number Plate
+      .input-box
+        span.details Number plate
+        input(type='text' placeholder='e.g UAX 666601D' name='')
+        // error
+        #numberPlate.text-danger.font-weight-bold.small
+      .input-box
+        // type od car
+        span.details Select type of car
+        select#cars(name='Types of cars')
+          option(value='Personal cars') PERSONAL CARS
+          option(value='Trucks') TRUCKS
+          option(value='Bodas') BODA BODA
+          option(value='Taxi') TAXI
+      .input-box
+        // date and time
+        span.details Date and Time for Entry
+        input(type='datetime-local' placeholder='Select Date' name='dateTime')
+        // error
+        #dateTime.text-danger.font-weight-bold.small
+      #numberPlate.text-danger.font-weight-bold.small
+      .input-box
+        span.details BATTERY 
+        input(type='text' placeholder='BATTERY' name='battery')
+        // error
+        #typeBattery.text-danger.font-weight-bold.small
+      .button
+        input(type='Submit' value='Register')
+script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')
+// This will initate date and time in our form
+script(src='https://cdn.jsdelivr.net/npm/flatpickr')
+script.
+  config ={
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  }
+  flatpickr("input=[type=datetime-local", {});
+script(src='./public/validations/batteries.js')

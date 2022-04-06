@@ -1,5 +1,7 @@
 // route will specify a path on your web browser
-const express = require('express')
+const express = require('express'); 
+const flash = require('connect-flash')
+const bcrypt = require('bcryptjs');
 const router = express.Router(); 
 
 //create an object that will create instances of signing up  
@@ -21,15 +23,9 @@ router.get('/signup', (req,res) => {
 router.post('/signup', (req,res) =>{
     // creating a variable that picks the body of the field like username
     const username = req.body.username; 
+    const email = req.body.email;
     const password = req.body.password; 
     const confirmpassword = req.body.confirmpassword; 
-    
-    // validating 
-    // notEmpty is a function that makes sure the fields are entered. equivalent to required in html. 
-    req.checkBody('username', 'enter user name').notEmpty();
-    req.checkBody('email', 'enter correct email').notEmpty;
-    req.checkBody('password', 'enter password').notEmpty();
-    req.checkBody('confirmpassword', 'confirm password').notEmpty; 
     
     // 
     let error = req.validationErrors();
@@ -40,21 +36,34 @@ router.post('/signup', (req,res) =>{
     else {
         let newUser = new Signup({
             username: username, 
+            email:email,
             password: password, 
             confirmpassword: confirmpassword
         });
 
-        // saving the new user
-
-        newUser.save((err)=>{
-            if(err){
-                console.error(err)
-                return;
-            } 
-            else {
-                console.log('new user registered');
-                res.redirect('/login');
-            }
+        //encrypting the password using bcrypt
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if (err) {
+                    console.error(err)
+                    return;
+                }else{
+                    newUser.password = hash;
+                    // saving our model to
+                    newUser.save((err) => {
+                        if(err){
+                            console.error(err);
+                        return;
+                        }
+                        else {
+                        //we fisrt flash a message confirm the saving of a record
+                        //we stay @ the same form to register a new entity
+                        console.log('we have saved your data in the database')
+                        res.redirect('/login')
+                        }
+                    })
+                }
+            })
         })
     }
 })
@@ -63,4 +72,4 @@ router.post('/signup', (req,res) =>{
 
 
 // gives access to someone to access our router
-module.exports = router; 
+module.exports = router;

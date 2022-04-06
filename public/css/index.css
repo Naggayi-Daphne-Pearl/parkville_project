@@ -9,16 +9,16 @@ body {
     display: block;
     justify-content: center;
     align-items: center;
-    background: #dbe5e6;
+    background: #dbe5e6; 
 }
 
-/* Add a black background color to the top navigation */
+/* Adding a background color to the top navigation */
 .topnav {
     background-color: #05595B;
     overflow: hidden;
   }
   
-  /* Style the links inside the navigation bar */
+  /* Styling the links inside the navigation bar */
   .topnav .left a {
     float: left;
     color: #f2f2f2;
@@ -40,14 +40,13 @@ body {
 
   }
   
-  
-  /* Change the color of links on hover */
+  /* Changing the color of links on hover */
   .topnav a:hover {
     background-color: #ddd;
     color: #05595B ;
   }
   
-  /* Add a color to the active/current link */
+  /* Adding a color to the active/current link */
   .topnav a.active {
     background-color: #E2D784;
     color: white;
@@ -57,27 +56,21 @@ body {
 }
 
 
-
+/* form Design*/
 .container {
     max-width: 1000px;
-    height: auto;
+    min-height: 100px;
     width: 100%;
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
 }
-.container h1 {
+
+.container .title {
     font-size: 30px;
     font-weight: bold;
-    font-family: cursive;
-    align-items: center;
-    justify-content: center;
     position: relative;
-}
-.container .title {
-    font-size: 25px;
-    font-weight: bold;
-    position: relative;
+    margin-left: 20rem;
     align-items: center;
 }
 
@@ -87,7 +80,7 @@ body {
     left: 0;
     bottom: 0;
     height: 3px;
-    width: 30px;
+    width: 50px;
     background: linear-gradient(135deg, #E2D784, #05595B ); 
 }
 
@@ -150,22 +143,21 @@ form .gender-details .gender {
 }
 
 form .button input {
-    height: 100%;
-    width: 300px;
-    outline: none;
-    color: #000;
-    justify-content: center;
+    border-radius: 10px;
+    background-color: #05595B;
     border: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    background: #E2D784; 
-
-}
-
-form .button input:hover {
-    background: #05595B;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    cursor: pointer;
+    margin: 0;
+   /* margin-top: 1 rem;
+    margin-bottom: 1em;*/
+    margin-left: 25rem;
 }
 
 /* Making page responsive */
