@@ -1,8 +1,8 @@
 // accessing the dom by form name and element
-const userName = document.battery.userName; 
-const phoneNumber = document.battery.phoneNumber; 
-const numberPlate = document.battery.numberPlate;
-const dateTime = document.battery.dateTime
+const userName = document.battery.username; 
+const phoneNumber = document.battery.phonenumber; 
+const numberPlate = document.battery.numberplate;
+const dateTime = document.battery.datetime
 
 
 

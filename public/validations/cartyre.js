@@ -1,10 +1,10 @@
 // accessing the dom by form name and element
-const userName = document.tyre.userName;
-const phoneNumber = document.tyre.phoneNumber; 
+const userName = document.tyre.username;
+const phoneNumber = document.tyre.phonenumber; 
 const numberPlate = document.tyre.numberPlate; 
 //const typeOfCar = document.tyre.typeOfCar; 
-const dateTime = document.tyre.dateTime
-const tyreMake = document.tyre.tyreMake; 
+const dateTime = document.tyre.datetime
+const tyreMake = document.tyre.tyremake; 
 
 //displaying errors picked from id of error element in form
 const userNameError = document.getElementById('userName'); 

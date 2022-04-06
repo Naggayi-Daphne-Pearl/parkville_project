@@ -58,7 +58,7 @@ router.post('/signup', (req,res) =>{
                         else {
                         //we fisrt flash a message confirm the saving of a record
                         //we stay @ the same form to register a new entity
-                        console.log('we have saved your data in the database')
+                        console.log('new user registered')
                         res.redirect('/login')
                         }
                     })
@@ -72,4 +72,4 @@ router.post('/signup', (req,res) =>{
 
 
 // gives access to someone to access our router
-module.exports = router;
+module.exports = router; 

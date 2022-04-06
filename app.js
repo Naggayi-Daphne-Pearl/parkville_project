@@ -2,19 +2,14 @@ const express = require('express');
 const mongoose = require ('mongoose'); 
 const bodyParser = require('body-parser')
 const path = require ('path')
-// const Users = require('./models/loginmodel'); 
-//const passportLocalMongoose = require('passport-local-mongoose'); 
-//const expressValidator = require ('express-validator');
-//const flash = require ('connect-flash')
 const passport = require ('passport'); 
+
 // Express-session middleware to help us save the session cookie.
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
   saveUninitialized: false,
-});
-//const passportLocal = require('passport-local'); 
-//const expressSession = require ('express-session'); 
+}); 
 
 // creating a real controller which will manage the instances
 //this will inherit express functions
@@ -29,6 +24,8 @@ const login = require('./routes/login');
 const home = require('./routes/home');
 const logout = require('./routes/home'); 
 const parking = require('./routes/parking');
+const battery = require('./routes/batteryroute'); 
+const tyre = require('./routes/tyreroute')
 
 // inheriting a connection from mongoose
 mongoose.connect(config.database);
@@ -77,6 +74,8 @@ app.use('/', login);
 app.use('/', home);
 app.use('/', logout); 
 app.use('/', parking); 
+app.use('/', battery); 
+app.use('/', tyre)
 
 //Error non existent path.
 app.get('*', (req, res) => {

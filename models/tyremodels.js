@@ -4,7 +4,7 @@
 const mongoose = require ('mongoose'); 
 
 // creating a schema
-const parkingSchema = mongoose.Schema({
+const tyreSchema = mongoose.Schema({
     username: {
         type: String, 
         required: [true, 'must provided']
@@ -16,24 +16,16 @@ const parkingSchema = mongoose.Schema({
     numberplate: {
         type: String, 
         required: true
-    }, 
-    typeofcar: {
+    },  
+    size: {
         type: String, 
         required: true
     }, 
-    nin: {
-        type: String, 
-        required: true
-    },
-    numberplate: {
-        type: String, 
-        required: true
-    }, 
-    parkingslot: {
+    tyremake: {
         type: String, 
         required: true
     }
 });
 
 // we are exporting information to another file to acccess database
-module.exports = mongoose.model('Parking', parkingSchema);
+module.exports = mongoose.model('Tyre', tyreSchema);

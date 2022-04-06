@@ -1,9 +1,9 @@
 // accessing the dom by form name and element
-const userName = document.parking.userName; 
-const phoneNumber = document.parking.phoneNumber; 
+const userName = document.parking.username; 
+const phoneNumber = document.parking.phonenumber; 
 const nin = document.parking.nin; 
-const numberPlate = document.parking.numberPlate; 
-const parkingSlot = document.parking.parkingSlot; 
+const numberPlate = document.parking.numberplate; 
+const parkingSlot = document.parking.parkingslot; 
 //const typeOfCar = document.parking.typeOfCar; 
 
 //displaying errors picked from id of error element in form
@@ -107,7 +107,7 @@ function phoneNumberVerify() {
 
 // nin
 function ninVerify() {
-    if (nin.value != '' && nin.value.match(ninRegex)) {
+    if (nin.value != '' && nin.value.match(alphaNumeric)) {
      nin.style.border = '1px solid green'; 
      ninError.innerHTML= ''; 
      return true;
@@ -124,20 +124,20 @@ function ninVerify() {
 
  // Number Plate
 
- function numberPlateVerify() {
-    if (numberPlate.value != '' && numberPlate.value.match(numberPlateRegex)) {
-     numberPlate.style.border = '1px solid green'; 
-     numberPlateError.innerHTML= ''; 
-     return true;
+//  function numberPlateVerify() {
+//     if (numberPlate.value != '' && numberPlate.value.match(alphaNumeric)) {
+//      numberPlate.style.border = '1px solid green'; 
+//      numberPlateError.innerHTML= ''; 
+//      return true;
         
-    } 
-    else {
-     numberPlate.style.border = '1px solid red'; 
-     numberPlateError.textContent= 'Number Plate filled is incorrect'; 
-     return false;  
-    }
+//     } 
+//     else {
+//      numberPlate.style.border = '1px solid red'; 
+//      numberPlateError.textContent= 'Number Plate filled is incorrect'; 
+//      return false;  
+//     }
        
- }
+//  }
 
 // // typeOfCar of car
 // function typeOfCarVerify() {

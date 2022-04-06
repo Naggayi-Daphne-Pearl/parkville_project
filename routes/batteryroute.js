@@ -2,8 +2,8 @@
 const express = require('express')
 const router = express.Router(); 
 
-//create an object that will create instances of signing up  
-const Parking = require('../models/parkingmodel'); 
+//create an object that will create instances of sigdatetimeg up  
+const Battery = require('../models/battery'); 
 // validating code from database
 const expressValidator = require('express-validator'); 
 
@@ -11,54 +11,44 @@ const expressValidator = require('express-validator');
 router.use(expressValidator());
 
 // Router is an instance of an object . is an object
-// we are getting information from path /parking
-router.get('/parking', (req,res) => {
-    // we are asking the server to give us information from parking pug 
-    res.render('parking')
+// we are getting information from path /battery
+router.get('/battery', (req,res) => {
+    // we are asking the server to give us information from battery pug 
+    res.render('batteries')
 });
 
-// posting data from the form of the parking method in parking.pug
-router.post('/parking', (req,res) =>{
+// posting data from the form of the battery method in battery.pug
+router.post('/battery', (req,res) =>{
     // creating a variable that picks the body of the field like username
     const username = req.body.username; 
     const phonenumber = req.body.phonenumber;
     const numberplate = req.body.numberplate;  
-    const nin = req.body.nin; 
-    const parkingslot = req.body.parkingslot; 
-    
-    // // validating 
-    // // notEmpty is a function that makes sure the fields are entered. equivalent to required in html. 
-    // req.checkBody('username', 'enter user name').notEmpty();
-    // req.checkBody('phonenumber', 'enter correct phonenumbe').notEmpty;
-    // req.checkBody('numberplate', 'enter password').notEmpty();
-    // req.checkBody(' typeofcar', 'enter type of car').notEmpty; 
-    // req.checkBody('nin', 'enter Id number'); 
-    // req.checkBody('date', 'enter time and date of checking in'); 
-    // req.checkBody('gender', 'enter gender'); 
+    const datetime = req.body.datetime; 
+    const battery = req.body.battery; 
     
     
     let error = req.validationErrors();
     if(error){
-        res.render('parking');
+        res.render('battery');
     }
     // registering new users to the database
     else {
-        let newEntry = new Parking({
+        let newEntry = new Battery({
             username: username, 
             phonenumber:phonenumber, 
-            nin:nin,
+            datetime:datetime,
             numberplate: numberplate, 
-            parkingslot: parkingslot
+            battery: battery
         });
 
-        // saving the new parking entry
+        // saving the new battery entry
         newEntry.save((err)=>{
             if(err){
                 console.error(err)
                 return;
             } 
             else {
-                console.log('new parking slot registered');
+                console.log('new battery client registered');
                 res.redirect('/home');
             }
         })
@@ -67,7 +57,7 @@ router.post('/parking', (req,res) =>{
 
 
 // // Delete post
-// router.delete('/parking', function(req, res){
+// router.delete('/battery', function(req, res){
 //     let query = {_id: req.params.id};
   
 //     Article.remove(query, function(err){
@@ -82,9 +72,9 @@ router.post('/parking', (req,res) =>{
 //   });
 
 // // updating a route
-// router.get('/parking', asyn(req,res)=>{
+// router.get('/battery', asyn(req,res)=>{
 //     try {
-//         const parkingData = await 
+//         const batteryData = await 
 //     } catch (error) {
         
 //     }

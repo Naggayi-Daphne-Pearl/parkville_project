@@ -22,13 +22,13 @@ head
       .input-box
         // name
         span.details Name Of client
-        input(typeofcar='text' placeholder='Enter Your Full Name' name='userName')
+        input(typeofcar='text' placeholder='Enter Your Full Name' name='username')
         // error message
         #userName.text-danger.font-weight-bold.small
       .input-box
         // phone Number
         span.details Phone Number
-        input(typeofcar='text' placeholder='070 XXXXXXX' name='phoneNumber')
+        input(typeofcar='text' placeholder='070 XXXXXXX' name='phonenumber')
         // error message
         #phoneNumber.text-danger.font-weight-bold.small
       .input-box
@@ -40,7 +40,7 @@ head
       .input-box
         // Number Plate
         span.details Number plate
-        input(typeofcar='text' placeholder='e.g UAX 666601D' name='numberPlate')
+        input(typeofcar='text' placeholder='e.g UAX 666601D' name='numberplate')
         // error message
         #numberPlate.text-danger.font-weight-bold.small
       .input-box
@@ -55,10 +55,10 @@ head
       .input-box
         span.details Date and Time for Entry
         // date and time
-        input(typeofcar='datetime-local' placeholder='Select Date')
+        input(typeofcar='datetime-local' placeholder='Select Date' name='datetime')
       .input-box
         span.details Parking Slot
-        input#slot(typeofcar='number' placeholder='parking slot' name='parkingSlot')
+        input#slot(typeofcar='number' placeholder='parking slot' name='parkingslot')
         // error message
         #parkingSlot.text-danger.font-weight-bold.small(name='parkingSlot')
       .input-box
@@ -72,7 +72,7 @@ head
         // error message
         #amount.text-danger.font-weight-bold.small(name='amount')
       .button
-        input(typeofcar='Submit' value='Register')
+        input(type='submit' value='Register')
 script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')
 // This will initate date and time in our form
 script(src='https://cdn.jsdelivr.net/npm/flatpickr')
