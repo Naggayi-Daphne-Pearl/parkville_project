@@ -32,7 +32,7 @@ router.post('/signup', (req,res) =>{
     if(error){
         res.render('signup');
     }
-    // registering new users to the database
+   //Signuping new users to the database
     else {
         let newUser = new Signup({
             username: username, 
@@ -57,8 +57,8 @@ router.post('/signup', (req,res) =>{
                         }
                         else {
                         //we fisrt flash a message confirm the saving of a record
-                        //we stay @ the same form to register a new entity
-                        console.log('new user registered')
+                        //we stay @ the same formSignup a new entity
+                        console.log('new Signup ')
                         res.redirect('/login')
                         }
                     })
@@ -67,6 +67,7 @@ router.post('/signup', (req,res) =>{
         })
     }
 })
+
 
 
 

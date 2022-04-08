@@ -25,7 +25,8 @@ const home = require('./routes/home');
 const logout = require('./routes/home'); 
 const parking = require('./routes/parking');
 const battery = require('./routes/batteryroute'); 
-const tyre = require('./routes/tyreroute')
+const tyre = require('./routes/tyreroute'); 
+const reports = require('./routes/reports')
 
 // inheriting a connection from mongoose
 mongoose.connect(config.database);
@@ -75,7 +76,8 @@ app.use('/', home);
 app.use('/', logout); 
 app.use('/', parking); 
 app.use('/', battery); 
-app.use('/', tyre)
+app.use('/', tyre); 
+app.use('/', reports)
 
 //Error non existent path.
 app.get('*', (req, res) => {
