@@ -8,33 +8,33 @@ head
   title REPORTS
 .topnav
   .left
-    a.active(href='/home') PARKVILLE PARKING
+    a.active(href='/home') PARKVILLE batteries
   .right
     a(href='/logout') LOG OUT
-    a(href='#contact') REPORTS
+    a(href='/reports') REPORTS
     a(href='/home') HOME
+.container
+  .title PARKVILLE REPORTS
 table.table
   thead
     tr
       th(scope='col') Client name
       th(scope='col') Phone Number
-      th(scope='col') Email
-      th(scope='col') Car Model
-      th(scope='col') Amount paid
+      th(scope='col') Phone Number
       th(scope='col') Date and time
+      th(scope='col') battery
   tbody
-    tr
-      th(scope='row') 1
-      td Mark
-      td Otto
-      td @mdo
-      td @mdo
-      td @mdo
-    tr
-      th(scope='row') 2
-      td Jacob
-      td Thornton
-      td @fat
-      td @mdo
-      td @mdo
+    if batteries.length 
+    each battery in batteries
+     tr
+      td #{battery.username}
+      td #{battery.phonenumber}
+      td #{battery.numberplate}  
+      td #{battery.typeofcar}
+      td #{battery.battery}
+      td 
+        a(href='#') Edit &nbsp;
+        a(href='#') Delete
+
+     
 script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')

@@ -10,37 +10,33 @@ const expressValidator = require('express-validator');
 // router to validate our data 
 router.use(expressValidator());
 
-// Router is an instance of an object . is an object
-// we are getting information from path /battery
-router.get('/reports', (req,res) => {
-    // we are asking the server to give us information from battery pug 
-    res.render('reports')
+router.get('/reports', async(req,res)=>{
+    // to pick data from the 
+    try {
+        // helps return all .....
+        const data = await Battery.find({}).sort({$natural:-1});
+       
+        //  //The sum aggregate
+        //  let totalTyre = await Tyre.aggregate([
+        //   {$group:{_id:'$all', totalTyre:{ $sum:'$amount'}}}
+        //   // {$group:{_id:'$all', totalValves:{ $sum:'$valves'}}}
+          
+        // ]);
+
+        res.render('reports', {
+          batteries : data
+        //   total : totalParking[0],
+          // total : totalValves[0]
+        })
+      } catch(error) {
+        return res.status(400).send(
+          { 
+            status: 400,
+            message: 'Oops failed to fetch all registrations',
+            error
+          });
+    }
 });
-
-
-// // Delete post
-// router.delete('/battery', function(req, res){
-//     let query = {_id: req.params.id};
-  
-//     Article.remove(query, function(err){
-//       if(err) {
-//         console.error(err);
-//         return;
-//       } else {
-//         req.flash('success', 'Article Deleted')
-//         res.send('Success');
-//       }
-//     });
-//   });
-
-// // updating a route
-// router.get('/battery', asyn(req,res)=>{
-//     try {
-//         const batteryData = await 
-//     } catch (error) {
-        
-//     }
-// })
 
 // gives access to someone to access our router
 module.exports = router; 

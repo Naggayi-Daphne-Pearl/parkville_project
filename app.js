@@ -26,7 +26,7 @@ const logout = require('./routes/home');
 const parking = require('./routes/parking');
 const battery = require('./routes/batteryroute'); 
 const tyre = require('./routes/tyreroute'); 
-const reports = require('./routes/reports')
+const reports = require('./routes/reports');
 
 // inheriting a connection from mongoose
 mongoose.connect(config.database);

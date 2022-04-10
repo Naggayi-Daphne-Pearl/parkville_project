@@ -26,17 +26,6 @@ router.post('/parking', (req,res) =>{
     const nin = req.body.nin; 
     const parkingslot = req.body.parkingslot; 
     
-    // // validating 
-    // // notEmpty is a function that makes sure the fields are entered. equivalent to required in html. 
-    // req.checkBody('username', 'enter user name').notEmpty();
-    // req.checkBody('phonenumber', 'enter correct phonenumbe').notEmpty;
-    // req.checkBody('numberplate', 'enter password').notEmpty();
-    // req.checkBody(' typeofcar', 'enter type of car').notEmpty; 
-    // req.checkBody('nin', 'enter Id number'); 
-    // req.checkBody('date', 'enter time and date of checking in'); 
-    // req.checkBody('gender', 'enter gender'); 
-    
-    
     let error = req.validationErrors();
     if(error){
         res.render('parking');
@@ -59,36 +48,13 @@ router.post('/parking', (req,res) =>{
             } 
             else {
                 console.log('new parking slot registered');
-                res.redirect('/home');
+                res.redirect('/reports');
             }
         })
     }
 })
 
 
-// // Delete post
-// router.delete('/parking', function(req, res){
-//     let query = {_id: req.params.id};
-  
-//     Article.remove(query, function(err){
-//       if(err) {
-//         console.error(err);
-//         return;
-//       } else {
-//         req.flash('success', 'Article Deleted')
-//         res.send('Success');
-//       }
-//     });
-//   });
-
-// // updating a route
-// router.get('/parking', asyn(req,res)=>{
-//     try {
-//         const parkingData = await 
-//     } catch (error) {
-        
-//     }
-// })
 
 // gives access to someone to access our router
 module.exports = router; 

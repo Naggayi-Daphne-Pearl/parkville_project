@@ -12,10 +12,6 @@ const parkingSchema = mongoose.Schema({
     phonenumber: {
         type: Number, 
         required: true
-    },
-    numberplate: {
-        type: String, 
-        required: true
     }, 
     typeofcar: {
         type: String, 
