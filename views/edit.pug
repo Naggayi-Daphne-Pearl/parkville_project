@@ -1,0 +1,16 @@
+extends reports 
+
+block content
+  h1 #{title}
+  form(method='POST', action='/edit/'+battery._id)
+    .form-group
+      label Title:
+      input.form-control(name='title', type='text', value=battery.title)
+    .form-group
+      label Author:
+      input.form-control(name='author', type='text', value=battery.author)
+    .form-group
+      label Body:
+      textarea.form-control(name='body')= battery.body
+    br
+    input.btn.btn-primary(type='submit', value='Submit')

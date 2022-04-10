@@ -71,5 +71,6 @@ router.get('/deleteBattery/:id', async(req, res)=> {
         }
     });
 
+
 // gives access to someone to access our router
 module.exports = router; 
