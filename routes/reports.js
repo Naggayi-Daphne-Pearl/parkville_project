@@ -37,24 +37,6 @@ router.get('/reports', async(req,res)=>{
     }
 });
 
-// router.get('/reports', async(req,res)=>{
-//   // to pick data from the 
-//   try {
-//       // helps return all .....
-//       const data = await Tyre.find({}).sort({$natural:-1});
-//       res.render('reports', {
-//         tyres : data, 
-//       })
-//     } catch(error) {
-//       return res.status(400).send(
-//         { 
-//           status: 400,
-//           message: 'Oops failed to fetch all registrations',
-//           error
-//         });
-//   }
-// });
-
 
 
 // gives access to someone to access our router

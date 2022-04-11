@@ -17,6 +17,7 @@ head
 
 // table of reports
 .container.py-5.h-100
+    .h1(style='font-size:30px; position:relative; margin-left:20rem; font-weight:bold;') BATTERY REPORTS 
     .container.row.justify-content-center
       .card.bg-light
         table.table
@@ -46,5 +47,6 @@ head
                             input(type="hidden" name="delete" value=battery._id)
                             button.btn.btn-danger(type='submit' data-bs-toggle='modal' onclick='myFunction()' data-bs-target='#staticBackdrop')
                               img(src='/images/deleteicon.jpg' style='width: 30px; height: 30px;')
-     
+
+
 script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')

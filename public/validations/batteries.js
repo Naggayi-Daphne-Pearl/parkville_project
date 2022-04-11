@@ -2,7 +2,7 @@
 const userName = document.battery.username; 
 const phoneNumber = document.battery.phonenumber; 
 const numberPlate = document.battery.numberplate;
-const dateTime = document.battery.datetime
+//const dateTime = document.battery.datetime
 const battery = document.battery.battery;
 
 
@@ -11,7 +11,7 @@ const battery = document.battery.battery;
 const userNameError = document.getElementById('userName');
 const phoneNumberError = document.getElementById('phoneNumber');  
 const numberPlateError = document.getElementById('numberPlate');
-const dateTimeError = document.getElementById('dateTime'); 
+//const dateTimeError = document.getElementById('dateTime'); 
 const batteryError = document.getElementById('typeBattery')
 
 
@@ -20,7 +20,7 @@ const batteryError = document.getElementById('typeBattery')
 userName.addEventListener('blur', userNameVerify,true); 
 phoneNumber.addEventListener('blur', phoneNumberVerify, true); 
 numberPlate.addEventListener('blur', numberPlateVerify, true); 
-dateTime.addEventListener('blur', dateTimeVerify, true); 
+//dateTime.addEventListener('blur', dateTimeVerify, true); 
 battery.addEventListener('blur', batteryVerify, true); 
 
 
@@ -47,12 +47,6 @@ function clientValidate() {
         return false; 
         
     }    
-    if (dateTime.value === '') {
-        dateTimeError.textContent = 'date required'; 
-        dateTime.style.border = '1px solid red'; 
-        dateTime.focus(); 
-        return false;
-    }
     if (battery.value === '') {
         batteryError.textContent = 'battery type required'; 
         battery.style.border = '1px solid red'; 
@@ -121,20 +115,20 @@ function numberPlateVerify() {
  }
 
 // date and time 
-function dateTimeVerify() {
-    if (dateTime.value != '' && dateTime.value.match(alphaNumeric)) {
-     dateTime.style.border = '1px solid green'; 
-     dateTimeError.innerHTML= ''; 
-     return true;
+// function dateTimeVerify() {
+//     if (dateTime.value != '' && dateTime.value.match(datetimeRegex)) {
+//      dateTime.style.border = '1px solid green'; 
+//      dateTimeError.innerHTML= ''; 
+//      return true;
         
-    } 
-    else {
-     dateTime.style.border = '1px solid red'; 
-     dateTimeError.textContent= 'date  is required'; 
-     return false;  
-    }
+//     } 
+//     else {
+//      dateTime.style.border = '1px solid red'; 
+//      dateTimeError.textContent= 'date  is required'; 
+//      return false;  
+//     }
        
- }
+//  }
 
  // battery type
  function batteryVerify() {

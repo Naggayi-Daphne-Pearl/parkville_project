@@ -48,36 +48,25 @@ router.post('/tyre', (req,res) =>{
             } 
             else {
                 console.log('new tyre client registered');
-                res.redirect('/home');
+                res.redirect('/reports');
             }
         })
     }
 })
 
 
-// // Delete post
-// router.delete('/tyre', function(req, res){
-//     let query = {_id: req.params.id};
+// DELETE Battery user
+router.get('/deletetyre/:id', async(req, res)=> {
+    try{
+      await Battery.deleteOne({_id:req.params.id})
+      res.redirect('/home');
   
-//     Article.remove(query, function(err){
-//       if(err) {
-//         console.error(err);
-//         return;
-//       } else {
-//         req.flash('success', 'Article Deleted')
-//         res.send('Success');
-//       }
-//     });
-//   });
-
-// // updating a route
-// router.get('/tyre', asyn(req,res) => {
-//     try {
-//         const tyreData = await 
-//     } catch (error) {
-        
-//     }
-// })
-
+    }
+    catch{
+          res.status(400).send('Unable to delete from database');
+      
+      
+        }
+    });
 // gives access to someone to access our router
 module.exports = router; 
