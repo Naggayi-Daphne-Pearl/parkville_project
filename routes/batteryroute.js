@@ -49,7 +49,7 @@ router.post('/battery', (req,res) =>{
             } 
             else {
                 console.log('new battery client registered');
-                res.redirect('/home');
+                res.redirect('/reports');
             }
         })
     }
@@ -63,7 +63,6 @@ router.get('/deleteBattery/:id', async(req, res)=> {
       res.redirect('/reports');
   
     }
-   
     catch{
           res.status(400).send('Unable to delete from database');
       

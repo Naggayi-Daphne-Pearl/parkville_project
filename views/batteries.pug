@@ -18,7 +18,7 @@ head
     a(href='/home') HOME
 .container
   .title BATTERY SECTION
-  form(action='/battery' method='POST' name='battery' onsubmit='clientValidate()')
+  form(action='/battery' method='POST' name='battery' onsubmit='return clientValidate()')
     .user-details
       .input-box
         // name of client
@@ -69,4 +69,4 @@ script.
   dateFormat: "Y-m-d H:i",
   }
   flatpickr("input=[type=datetime-local", {});
-script(src='./public/validations/batteries.js')
+script(src='/validations/batteries.js')

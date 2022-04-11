@@ -3,6 +3,7 @@ const userName = document.battery.username;
 const phoneNumber = document.battery.phonenumber; 
 const numberPlate = document.battery.numberplate;
 const dateTime = document.battery.datetime
+const battery = document.battery.battery;
 
 
 
@@ -10,7 +11,8 @@ const dateTime = document.battery.datetime
 const userNameError = document.getElementById('userName');
 const phoneNumberError = document.getElementById('phoneNumber');  
 const numberPlateError = document.getElementById('numberPlate');
-const dateTimeError = document.getElementById('dateTime')
+const dateTimeError = document.getElementById('dateTime'); 
+const batteryError = document.getElementById('typeBattery')
 
 
 
@@ -18,7 +20,8 @@ const dateTimeError = document.getElementById('dateTime')
 userName.addEventListener('blur', userNameVerify,true); 
 phoneNumber.addEventListener('blur', phoneNumberVerify, true); 
 numberPlate.addEventListener('blur', numberPlateVerify, true); 
-dateTime.addEventListener('blur', dateTimeVerify, true)
+dateTime.addEventListener('blur', dateTimeVerify, true); 
+battery.addEventListener('blur', batteryVerify, true); 
 
 
 
@@ -43,26 +46,19 @@ function clientValidate() {
         numberPlate.focus(); 
         return false; 
         
-    }
-    if (typeOfCar.value === '') {
-        typeOfCarError.textContent = 'Type Of Car required'; 
-        typeOfCar.style.border = '1px solid red'; 
-        typeOfCar.focus(); 
-        return false;    
-    }
-    if (batteryMake.value === '') {
-        batteryMakeError.textContent = 'battery Make required'; 
-        batteryMake.style.border = '1px solid red'; 
-        batteryMake.focus(); 
-        return false;    
-    }
+    }    
     if (dateTime.value === '') {
         dateTimeError.textContent = 'date required'; 
         dateTime.style.border = '1px solid red'; 
         dateTime.focus(); 
         return false;
     }
-    
+    if (battery.value === '') {
+        batteryError.textContent = 'battery type required'; 
+        battery.style.border = '1px solid red'; 
+        battery.focus(); 
+        return false; 
+    }
 }
 
 
@@ -125,7 +121,7 @@ function numberPlateVerify() {
  }
 
 // date and time 
-function numberPlateVerify() {
+function dateTimeVerify() {
     if (dateTime.value != '' && dateTime.value.match(alphaNumeric)) {
      dateTime.style.border = '1px solid green'; 
      dateTimeError.innerHTML= ''; 
@@ -134,8 +130,22 @@ function numberPlateVerify() {
     } 
     else {
      dateTime.style.border = '1px solid red'; 
-     numberPlateError.textContent= 'date  is required'; 
+     dateTimeError.textContent= 'date  is required'; 
      return false;  
     }
        
  }
+
+ // battery type
+ function batteryVerify() {
+    if (battery.value != '' && battery.value.match(alphanumeric)) {
+        battery.style.border = '1px solid green'; 
+        batteryError.innerHTML = ''; 
+        return true
+ }
+ else {
+     battery.style.border = '1px solid red'; 
+     batteryError.textContent = 'Please fill in the right details'
+     return false
+ }
+}

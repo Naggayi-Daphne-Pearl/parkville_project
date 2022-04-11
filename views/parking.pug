@@ -17,30 +17,30 @@ head
     a(href='/home') HOME
 .container
   .title CAR PARKING UNIT
-  form(action='/parking' name='parking' method='POST' onsubmit='clientValidate()')
+  form(action='/parking' name='parking' method='POST' onsubmit='return clientValidate()')
     .user-details
       .input-box
         // name
         span.details Name Of client
-        input(typeofcar='text' placeholder='Enter Your Full Name' name='username')
+        input(type='text' placeholder='Enter Your Full Name' name='username')
         // error message
         #userName.text-danger.font-weight-bold.small
       .input-box
         // phone Number
         span.details Phone Number
-        input(typeofcar='text' placeholder='070 XXXXXXX' name='phonenumber')
+        input(type='text' placeholder='070 XXXXXXX' name='phonenumber')
         // error message
         #phoneNumber.text-danger.font-weight-bold.small
       .input-box
         span.details Identity Card Number
         // Nin Number
-        input(typeofcar='text' placeholder='NIN NUMBER' name='nin')
+        input(type='text' placeholder='NIN NUMBER' name='nin')
         // error message
         #nin.text-danger.font-weight-bold.small
       .input-box
         // Number Plate
         span.details Number plate
-        input(typeofcar='text' placeholder='e.g UAX 666601D' name='numberplate')
+        input(type='text' placeholder='e.g UAX 666601D' name='numberplate')
         // error message
         #numberPlate.text-danger.font-weight-bold.small
       .input-box
@@ -55,10 +55,10 @@ head
       .input-box
         span.details Date and Time for Entry
         // date and time
-        input(typeofcar='datetime-local' placeholder='Select Date' name='datetime')
+        input(type='datetime-local' placeholder='Select Date' name='datetime')
       .input-box
         span.details Parking Slot
-        input#slot(typeofcar='number' placeholder='parking slot' name='parkingslot')
+        input#slot(type='number' placeholder='parking slot' name='parkingslot')
         // error message
         #parkingSlot.text-danger.font-weight-bold.small(name='parkingSlot')
       .input-box
