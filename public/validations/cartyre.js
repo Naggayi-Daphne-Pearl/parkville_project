@@ -28,7 +28,6 @@ function clientValidate() {
     if (userName.value === '') {
         userNameError.textContent = 'Name of client is required';
         userName.style.border = '1px solid red';
-        userName.textContent = ''
         userName.focus();
         return false;    
     }
@@ -48,6 +47,9 @@ function clientValidate() {
     }
     if (dateTime.value === '') {
         dateTimeError.textContent = 'Please fill in Date and Time for the user'
+        dateTime.style.border = '1px solid red'; 
+        dateTime.focus(); 
+        return false;
     }
     // if (typeOfCar.value === '') {
     //     typeOfCarError.textContent = 'typeOfCar of car required'; 
@@ -110,7 +112,7 @@ function phoneNumberVerify() {
 // Number Plate
 
 function numberPlateVerify() {
-    if (numberPlate.value != '' && numberPlate.value.match(numberPlateRegex)) {
+    if (numberPlate.value != '' && numberPlate.value.match(alphaNumeric)) {
      numberPlate.style.border = '1px solid green'; 
      numberPlateError.innerHTML= ''; 
      return true;
@@ -139,21 +141,6 @@ function dateTimeVerify() {
     
 }
 
-// // typeOfCar of car
-// function typeOfCarVerify() {
-//     if (typeOfCar.value != '' && typeOfCar.value.match(alphaNumeric)) {
-//      typeOfCar.style.border = '1px solid green'; 
-//      typeOfCarError.innerHTML= ''; 
-//      return true;
-        
-//     } 
-//     else {
-//      typeOfCar.style.border = '1px solid red'; 
-//      typeOfCarError.textContent= 'typeOfCar of tyreMake is required'; 
-//      return false;  
-//     }
-       
-//  }
 
 // typeOfCar of tyreMake
 function tyreMakeVerify() {

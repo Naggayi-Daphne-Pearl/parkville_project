@@ -1,10 +1,15 @@
+//express is used to design and build web applications easily and quicky
 const express = require('express'); 
+// mongoose allows to create and manage data in the MongoDb
 const mongoose = require ('mongoose'); 
-const bodyParser = require('body-parser')
-const path = require ('path')
+// body parser process data through the HTTP req.body
+const bodyParser = require('body-parser'); 
+// path provides a lot of very useful functionality to access and interact with the file system. 
+const path = require ('path');
+// passport autheenicates the user 
 const passport = require ('passport'); 
 
-// Express-session middleware to help us save the session cookie.
+// Express-session middleware to help us save the session cookie by storing data on the server. 
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,

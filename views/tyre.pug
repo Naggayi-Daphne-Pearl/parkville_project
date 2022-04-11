@@ -13,28 +13,28 @@ head
     a.active(href='/home') PARKVILLE PARKING
   .right
     a(href='/logout') LOG OUT
-    a(href='#contact') REPORTS
+    a(href='/reports') REPORTS
     a(href='/home') HOME
 .container
   .title CAR TYRE CLINIC
-  form(action='/tyre' method='POST' name='tyre' onsubmit='clientValidate()')
+  form(action='/tyre' method='POST' name='tyre' onsubmit='return clientValidate()')
     .user-details
       .input-box
         // Name of client
         span.details Name Of client
-        input(typeofcar='text' placeholder='Enter Your Full Name' name='username')
+        input(type='text' placeholder='Enter Your Full Name' name='username')
         // error message
         #userName.text-danger.font-weight-bold.small
       .input-box
         // phone Number
         span.details Phone Number
-        input(typeofcar='text' placeholder='070 XXXXXXX' name='phonenumber')
+        input(type='text' placeholder='070 XXXXXXX' name='phonenumber')
         // error message
         #phoneNumber.text-danger.font-weight-bold.small
       .input-box
         span.details Number plate
         // Number plate
-        input(typeofcar='text' placeholder='e.g UAX 666601D' name='numberplate')
+        input(type='text' placeholder='e.g UAX 666601D' name='numberplate')
         // error message
         #numberPlate.text-danger.font-weight-bold.small
       .input-box
@@ -50,19 +50,19 @@ head
       .input-box
         // date and time
         span.details Date and Time for Entry
-        input(typeofcar='datetime-local' placeholder='Select Date' name='datetime')
+        input(type='datetime-local' placeholder='Select Date' name='datetime')
         // error message
         #dateTime.text-danger.font-weight-bold.small
       .input-box
         // car size
         span.details Car Tyre Size
-        input(typeofcar='text' placeholder='tyre-size' name='size')
+        input(type='text' placeholder='tyre-size' name='size')
         // error message
         #size.text-danger.font-weight-bold.small
       .input-box
         // tyreMake
         span.details Tyre tyreMake
-        input(typeofcar='text' placeholder='tyre-size' name='tyremake')
+        input(type='text' placeholder='tyre-size' name='tyremake')
         // error message
         #tyreMake.text-danger.font-weight-bold.small
       .input-box

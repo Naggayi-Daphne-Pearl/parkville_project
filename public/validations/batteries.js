@@ -28,7 +28,7 @@ battery.addEventListener('blur', batteryVerify, true);
 // validations
 function clientValidate() {
     if (userName.value === '') {
-        userNameError.textContent = 'first name is required';
+        userNameError.textContent = 'client name is required';
         userName.style.border = '1px solid red';
         userName.focus();
         return false;    

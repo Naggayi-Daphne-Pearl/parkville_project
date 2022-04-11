@@ -83,8 +83,8 @@ function userNameVerify() {
     else{
         userName.style.border = '1px solid red';
         userNameError.textContent = 'Name should be 1-20 characters'
-       userName.focus();
-       return false;
+        userName.focus();
+        return false;
        }
     
 }
@@ -122,49 +122,33 @@ function ninVerify() {
  }
 
 
- // Number Plate
+ //Number Plate
 
-//  function numberPlateVerify() {
-//     if (numberPlate.value != '' && numberPlate.value.match(alphaNumeric)) {
-//      numberPlate.style.border = '1px solid green'; 
-//      numberPlateError.innerHTML= ''; 
-//      return true;
+ function numberPlateVerify() {
+    if (numberPlate.value != '' && numberPlate.value.match(alphaNumeric)) {
+     numberPlate.style.border = '1px solid green'; 
+     numberPlateError.innerHTML= ''; 
+     return true;
         
-//     } 
-//     else {
-//      numberPlate.style.border = '1px solid red'; 
-//      numberPlateError.textContent= 'Number Plate filled is incorrect'; 
-//      return false;  
-//     }
+    } 
+    else {
+     numberPlate.style.border = '1px solid red'; 
+     numberPlateError.textContent= 'Number Plate filled is incorrect'; 
+     return false;  
+    }
        
-//  }
-
-// // typeOfCar of car
-// function typeOfCarVerify() {
-//     if (typeOfCar.value != '' && typeOfCar.value.match(alphaNumeric)) {
-//      typeOfCar.style.border = '1px solid green'; 
-//      typeOfCarError.innerHTML= ''; 
-//      return true;
-        
-//     } 
-//     else {
-//      typeOfCar.style.border = '1px solid red'; 
-//      typeOfCarError.textContent= 'typeOfCar of car is required'; 
-//      return false;  
-//     }
-       
-//  }
+ }
 
 // parking slot 
 function parkingSlotVerify() {
     if (parkingSlot.value != '' && parkingSlot.value.match(alphaNumeric)) {
         parkingSlot.value.border = '1px solid green'; 
-        parkingSlot.innerHTML = ''; 
+        parkingSlotError.innerHTML = ''; 
         return true
         
     } else {
        parkingSlot.style.border = '1px solid red'; 
-       parkingSlot.textContent = 'please fill in the parking slot number' 
+       parkingSlotError.textContent = 'please fill in the parking slot number' 
     }
     
 }
