@@ -46,5 +46,36 @@ head
                             input(type="hidden" name="delete" value=battery._id)
                             button.btn.btn-danger(type='submit' data-bs-toggle='modal' onclick='myFunction()' data-bs-target='#staticBackdrop')
                               img(src='/images/deleteicon.jpg' style='width: 30px; height: 30px;')
+
+.container.py-5.h-100
+    .container.row.justify-content-center
+      .card.bg-light
+        table.table
+          thead.thead-dark
+            tr
+              th(scope='col' class='th') Client name
+              th(scope='col' class='th') Phone number
+              th(scope='col' class='th') Number plate 
+               th(scope='col' class='th') Battery
+
+              
+          tbody
+            if tyres.length 
+            each tyre in batteries 
+             tr     
+              td(class='td') #{tyre.username}
+              td(class='td') #{tyre.phonenumber}
+              td(class='td') #{tyre.numberplate} 
+              td(class='td') #{tyre.tyremake}
+              td
+          
+                div
+                      button.btn.btn-primary(type='submit'  data-bs-target='#staticBackdrop' style='background-color:#f1f1f1; margin-right: 5px;')
+                          img(src='/images/edit.png' style='width: 30px; height: 30px;')
+                
+                          form(method="GET" action="/deleteTyre/"+tyre._id)
+                            input(type="hidden" name="delete" value=tyre._id)
+                            button.btn.btn-danger(type='submit' data-bs-toggle='modal' onclick='myFunction()' data-bs-target='#staticBackdrop')
+                              img(src='/images/deleteicon.jpg' style='width: 30px; height: 30px;')
      
 script(src='/bootstrap-5.1.3-dist/js/bootstrap.js')
